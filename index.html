@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bean Songkok Nusantara — Toko Peci</title>
+<link rel="stylesheet" href="style/index.css">
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="logo">BS</div>
+      <div>
+        <h1>BEAN SONGKOK NUSANTARA</h1>
+        <p>PECI BERKUALITAS • HARGA TERJANGKAU</p>
+      </div>
+    </div>
+    <div style="text-align:right;opacity:0.95">
+      <small>Premium collection • Chat WA untuk custom bordir</small>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="topbar">
+      <div class="search">
+        <input id="search" placeholder="Cari produk, contoh: songkok, bordir, rajut..." oninput="filterProducts()" />
+      </div>
+      <div class="filters">
+        <select id="filterSize" onchange="filterProducts()">
+          <option value="">Semua ukuran</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <section class="products" id="products">
+      <!-- Cards inserted by JS -->
+    </section>
+
+    <!-- Form -->
+    <section class="form-card" id="formCard">
+      <h3>Form Pemesanan & Pengiriman</h3>
+      <div class="form-grid" style="margin-top:10px">
+        <input id="nama" placeholder="Nama lengkap" />
+        <input id="wa" placeholder="Nomor WhatsApp (08...)" />
+        <input id="alamat" class="full" placeholder="Alamat lengkap" />
+        <textarea id="catatan" class="full" rows="3" placeholder="Catatan tambahan (opsional)"></textarea>
+        <div class="full" style="display:flex;gap:8px">
+          <button class="btn btn-ghost" onclick="clearCart()">Kosongkan Keranjang</button>
+          <button class="btn btn-primary" style="flex:1" onclick="checkoutWA()">Checkout via WhatsApp</button>
+        </div>
+        <div class="note full">Pastikan nomor WhatsApp diawali 08. Nomor akan dikonversi otomatis ke format internasional saat membuka WA.</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart floating + panel -->
+  <div class="cart-floating" onclick="toggleCart()">🛒 Keranjang (<span id="count">0</span>)</div>
+
+  <aside class="cart-panel" id="cartPanel" aria-hidden="true">
+    <h3>Keranjang Anda</h3>
+    <div id="cartList" style="display:flex;flex-direction:column;gap:8px;max-height:360px;overflow:auto"></div>
+    <div class="cart-footer">
+      <div class="total">Total: Rp <span id="totalAmount">0</span></div>
+      <button class="pay" onclick="checkoutWA()">Bayar via WA</button>
+    </div>
+  </aside>
+
+  <footer>&copy; <span id="year"></span> Bean Songkok Nusantara — dibuat dengan cinta dan kasih sayang</footer>
+
+  <script src="scipt/Index.js">
+    
+  </script>
+</body>
+</html>
